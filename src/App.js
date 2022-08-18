@@ -1,19 +1,26 @@
 import './App.css';
+import { useContext } from 'react';
 import Login from './atoms/Login';
 import { BrowserRouter , Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import PrivateRoutes from './utils/PrivateRoutes';
+import { LoginProvider } from './LoginContext';
+import LoginContext from './LoginContext'; 
 
 function App() {
+
+  const {isLoggedIn} = useContext(LoginContext);   
+  
+
   return (
-    <BrowserRouter>
-    <Routes>
-      {/* <Route element={<PrivateRoutes/>}>
-      </Route> */}
-      <Route exact path="/dashboard" element={<Dashboard/>}/>
-      <Route  path="/" element={<Login/>} />    
-    </Routes>
-    </BrowserRouter>
+    <LoginProvider >
+      <BrowserRouter>
+      <Routes>
+        <Route exact path="/dashboard" element={isLoggedIn ? <Dashboard/> : <Login />}/>
+        <Route  path="/" element={<Login /* setIsLoggedIn={setIsLoggedIn} *//>} />    
+      </Routes>
+      </BrowserRouter>
+    </LoginProvider>
+    
   );
 }
 

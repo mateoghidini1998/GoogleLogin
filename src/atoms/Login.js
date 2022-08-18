@@ -1,27 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
+/*global google*/
+import React, { useContext, useEffect } from 'react'
+import LoginContext from '../LoginContext'; 
 
 const Login = () => {
 
-  const navigate = useNavigate()
-  const [user, setUser] = useState({})
-
-  function handleCallbackResponse(response){
-    var userData = jwt_decode(response.credential); //Token with the login user Data
-    setUser(userData); //Store user Data 
-    /* console.log(userData) */
-    document.getElementById('signInDiv').hidden = true;
-    navigate('/dashboard');
-  }
-
-  function handleSignOut(event) {
-    setUser({}) //Empy the user Data
-    document.getElementById('signInDiv').hidden = false;
-  }
-
-    useEffect(()=>{
-        /*global google*/
+   const {user, handleCallbackResponse, handleSignOut} = useContext(LoginContext);   
+   
+   useEffect(()=>{
         google.accounts.id.initialize({
           client_id:"186813496344-0j9cjp3klq5igcsk8a2vcdm5gcosner8.apps.googleusercontent.com",
           callback: handleCallbackResponse
@@ -30,7 +15,7 @@ const Login = () => {
         google.accounts.id.prompt();
     
     
-        google.accounts.id.renderButton(
+        window.google.accounts.id.renderButton(
           document.getElementById('signInDiv'),
           {theme: 'outline', size: 'medium'}
         )
