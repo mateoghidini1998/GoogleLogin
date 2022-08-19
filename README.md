@@ -68,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Packages and Modules
+
+# React Router dom v6
+
+### `npm i react-router-dom@6`
+
+Documentation available at: [https://reactrouter.com/docs/en/v6/getting-started/overview]
+
+# Google Sign In (Google Identity Services)
+
+Documentation available at: [https://developers.google.com/identity]
+
+# Google OAuth2 API:
+
+Documentation available at: [https://developers.google.com/identity/protocols/oauth2]
+
+Create account at [https://developers.google.com/identity/protocols/oauth2]
+
+Create a project as external user type.
+
+Add your email for user assistance.
+
+Don´t add any scopes, and assign user emails for testing (just @gmail.com). Remember you are gonna be able to test your app with asigned emails.
+
+Create a Credential type 'OAuth Client ID'.
