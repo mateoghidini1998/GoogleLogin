@@ -1,0 +1,16 @@
+.logoutBtn{
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    color: #8313dd;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    border: 1px solid #8313dd;
+}
+
+.logoutBtn:hover{
+    color: #fff;
+    background-color: #8313dd;
+
+}

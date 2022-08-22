@@ -21,7 +21,7 @@ export function LoginProvider({ children}) {
     function handleSignOut(event) {
         setUser({}) //Empy the user Data
         setIsLoggedIn(false)        
-        
+        console.log('Im being triggered')
         document.getElementById('signInDiv').hidden = false;
     }  
 

@@ -1,18 +1,31 @@
 .navbar{
-    width:250px;
-    float:left;
+    height: 70px;
+    width: 100%;
     display: flex;
     align-items: center;
     text-align: center;
-    height:100%;
-    
 }
 
-.links{
-    position: relative;
-    margin: 0 auto;
-    color:#8313DD;
-    font-weight: 700;
-    font-size: 24px;
-    
+.userInfo{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    height: 50%;
+}
+
+.userInfo img{
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.userInfo h2{
+    text-transform: uppercase;
+    padding:5px;
+}
+
+.logout{
+
+    margin-left: 80%;
 }

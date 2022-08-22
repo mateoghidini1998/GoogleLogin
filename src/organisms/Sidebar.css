@@ -1,0 +1,21 @@
+.sidebar{
+    width:250px;
+    float:left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height:100%;
+    
+}
+
+.links{
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    color:#8313DD;
+    font-weight: 700;
+    font-size: 24px;
+    flex-direction: column;
+    
+}

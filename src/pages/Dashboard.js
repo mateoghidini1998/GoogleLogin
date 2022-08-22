@@ -1,23 +1,17 @@
 import React, { useContext } from 'react'
-import Navbar from '../organisms/Navbar'
+import Sidebar from '../organisms/Sidebar'
 import './Dashboard.css'
 import LoginContext from '../LoginContext'; 
 
 const Dashboard = () => {
 
-  const {user, handleSignOut} = useContext(LoginContext);
+  const {user} = useContext(LoginContext);
   console.log(user)
 
   return (
     <div className='dashboard'>
       <div className="user-content">
-      {
-        //If user objetc is not empty show sign out button
-        Object.keys(user).length !== 0 &&
-      <button onClick={(e)=>handleSignOut(e)}>Sign Out</button>
-      }
-        <h2>{user.name}</h2>
-        <Navbar/>
+        <Sidebar />
       </div>
         <div className='content'>
             <h1>Welcome to my Dashboard</h1>
