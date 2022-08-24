@@ -1,7 +1,6 @@
 import './App.css';
 import Login from './atoms/Login';
 import { BrowserRouter , Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
 import { useContext } from 'react';
 import LoginContext from './LoginContext';
 import Contact from './pages/Contact';
