@@ -6,18 +6,24 @@ import LoginContext from './LoginContext';
 import Contact from './pages/Contact';
 import Search from './pages/Search';
 import Main from './templates/Main';
+import Dashboard from './pages/Dashboard';
+
 
 function App() {
   const {isLoggedIn} = useContext(LoginContext);
   console.log(isLoggedIn);
   return (    
-      <BrowserRouter>
-      <Routes>
-        <Route path="/" element={isLoggedIn ? <Main/> : <Login />}/>
-        <Route path="/contact" element ={<Contact/>}/> 
-        <Route path="/search" element ={<Search/>}/>       
-      </Routes>
-      </BrowserRouter>   
+      <div>
+      
+        <BrowserRouter>
+          {isLoggedIn ? <Main/> : <Login/> }
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <Dashboard/> : <Login />}/>
+          <Route path="/contact" element ={ isLoggedIn ? <Contact/> : <Login/>}/> 
+          <Route path="/search" element ={ isLoggedIn ? <Search/> : <Login/>}/>       
+        </Routes>
+        </BrowserRouter>
+      </div>
     );
 }
 

@@ -1,20 +1,21 @@
-.logoutBtn{
+.paginationBtn{
     border-radius: 5px;
-    width: 120px;
+    width: 80px;
     height: 40px;
     padding: 10px;
-    border: .5px solid rebeccapurple;
+    border: none;
     background-color: white;
     color: rebeccapurple;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 12px;
     cursor: pointer;
     margin-top: 15px;
     margin-bottom: 30px;
     margin-right: 10px;
+    border: .5px solid rebeccapurple;
 }
 
-.logoutBtn:hover{
+.paginationBtn:hover{
     background-color: rebeccapurple;
     color:white;
 }

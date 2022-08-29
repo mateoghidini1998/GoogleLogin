@@ -5,7 +5,7 @@ import './Login.css';
 
 const Login = () => {
    
-   const {user, handleCallbackResponse, handleSignOut} = useContext(LoginContext);   
+   const {user, handleCallbackResponse} = useContext(LoginContext);   
    
    useEffect(()=>{
         google.accounts.id.initialize({
@@ -22,7 +22,7 @@ const Login = () => {
         )
     
       }, []);
-      console.log(user)
+      
   return (
     <div>
         <div id="signInDiv"></div>

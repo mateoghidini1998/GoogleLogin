@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import SubmitBtn from '../atoms/SubmitBtn';
 import './ContactForm.css'
+import './Modal.css'
 import FormInput from '../molecules/FormInput'
+import Modal from './Modal';
 
 
 const ContactForm = () => {
-
+  const [ isOpen, setIsOpen ] = useState(false)
   const [values, setValues ] = useState({
     name: '',
     lastname: '',
@@ -62,34 +64,43 @@ const ContactForm = () => {
   ]
 
   const handleSubmit = (e) => {
+    const formData = new FormData(e.currentTarget)
     e.preventDefault();
-    console.log('Hello world');
+    for( let [key, value] of formData.entries()){
+      console.log(key,value)
+    }
+    setIsOpen(true)
+    
+  }
+
+  const handleClose = () =>{
+    setIsOpen(false)
   }
 
   const onChange = (e) => {
     setValues({...values, [e.target.name]: e.target.value}); 
-  }
-
-
-
-
-  console.log(values);
-  
+  }  
 
   return (
-    <form className='contactForm' onSubmit={handleSubmit}>
-      {inputs.map((input) => (
-        <FormInput 
-        key={input.id} 
-        {...input} 
-        value={values[input.name]} 
-        onChange={onChange}
-        />
-      ))}
-      <SubmitBtn/>
-      
-      
-    </form>
+    <div className='container'>
+      <Modal 
+      open={isOpen} 
+      handleClose={handleClose} 
+      handleSubmit={handleSubmit}     
+      />
+
+      <form className='contactForm' onSubmit={handleSubmit}>
+        {inputs.map((input) => (
+          <FormInput 
+          key={input.id} 
+          {...input} 
+          value={values[input.name]} 
+          onChange={onChange}
+          />
+        ))}
+        <SubmitBtn handleSubmit={handleSubmit} />    
+      </form>
+    </div>
   )
 }
 

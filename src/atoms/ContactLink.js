@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Links.css'
+
 const ContactLink = () => {
   return (
-    <Link to="/contact">Contact</Link>
+    <Link className='link' to="/contact">Contact</Link>
   )
 }
 

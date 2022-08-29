@@ -1,12 +1,12 @@
 import React from 'react'
-import Dashboard from '../pages/Dashboard'
 import Navbar from '../organisms/Navbar'
+import Sidebar from '../organisms/Sidebar'
 
 const Main = () => {
   return (
     <div>
         <Navbar />
-        <Dashboard />
+        <Sidebar/>
     </div>
   )
 }
