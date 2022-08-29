@@ -1,17 +1,15 @@
 import React from 'react'
 
-const Modal = ({ open, handleClose }) => {
+const Modal = ({ open, handleClose, children }) => {
+     
+    
   if(!open) return null
 
   return (
     <div className='wrapper'>
         <div className="modal">
             <div className="modal-content">
-                <input disabled></input>
-                <input disabled></input>
-                <input disabled></input>
-                <input disabled></input>
-                <input disabled></input>
+                {children}
                 <button onClick={handleClose} >Close</button>
             </div>
         </div>

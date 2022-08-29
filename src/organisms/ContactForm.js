@@ -8,6 +8,11 @@ import Modal from './Modal';
 
 const ContactForm = () => {
   const [ isOpen, setIsOpen ] = useState(false)
+  const [data, setData] = useState({
+    key: '',
+    value: ''
+  })
+
   const [values, setValues ] = useState({
     name: '',
     lastname: '',
@@ -67,7 +72,10 @@ const ContactForm = () => {
     const formData = new FormData(e.currentTarget)
     e.preventDefault();
     for( let [key, value] of formData.entries()){
-      console.log(key,value)
+      setData({
+        key: key,
+        value:value
+      })
     }
     setIsOpen(true)
     
@@ -80,15 +88,22 @@ const ContactForm = () => {
   const onChange = (e) => {
     setValues({...values, [e.target.name]: e.target.value}); 
   }  
-
+  console.log(values.name);
   return (
     <div className='container'>
       <Modal 
       open={isOpen} 
       handleClose={handleClose} 
-      handleSubmit={handleSubmit}     
-      />
-
+      handleSubmit={handleSubmit}    
+      data={data}
+      values={values}
+      >
+        <input type="text" disabled value={values.name}/>
+        <input type="text" disabled value={values.lastname}/>
+        <input type="text" disabled value={values.email}/>
+        <input type="text" disabled value={values.confirmEmail}/>
+        <input type="text" disabled value={values.message}/>
+      </Modal>
       <form className='contactForm' onSubmit={handleSubmit}>
         {inputs.map((input) => (
           <FormInput 
